@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
+  <title>Mars Info</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -13,10 +13,46 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
+      
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
   </div>
   </div>
+  <h4> Latest Mars News: </h4>
+<br>
+<p class="news" style = "text-align: left;">   {{ mars_data.mars_news }}</p>
+<br>
+<h2 class="featured_image">  Featured Mars Image 
+    <br> <br>
+  <img  src="{{ mars_data.featured_image_url }}"  alt="Featured Mars image">
+  </h2>
+    <br>
+    <h3>Weather from Twitter</h3>
+    <br>
+    <p1 class="twitter" style = "text-align: left;">  {{ mars_data.mars_weather}}</p1>
+    <br>
+    <br>
+    <br>
+    <h4 >Mars Planet Profile</h4>
+
+            {{ mars_data.mars_facts | safe}}
+            <br>
+
+            <br>
+            <br>
+            <h2>Mars Hemispheres</h2><hr>
+            {% for data in mars_data.mars_hemispheres %}
+     
+          
+                <img src="{{ data.img_url }}" style ="width: 50%; " alt="hemispheres" >
+                <div class="card-text" > {{data.title}} </div>
+            
+              </div>
+    
+            {% endfor %} 
+        
+          </div>
+        </div> 
 </body>
 
 </html>
